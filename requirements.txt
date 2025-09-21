@@ -1,0 +1,30 @@
+# Web Framework
+Flask==2.3.3
+
+# Face Recognition and Detection
+deepface==0.0.79
+mtcnn==0.1.1
+
+# Computer Vision
+opencv-python==4.8.1.78
+
+# Scientific Computing
+numpy==1.24.3
+
+# Database (SQLite is built-in with Python, but including for completeness)
+# sqlite3 is part of Python standard library
+
+# Additional dependencies that deepface requires
+tensorflow==2.13.0
+keras==2.13.1
+pandas==2.0.3
+Pillow==10.0.1
+tqdm==4.66.1
+
+# Optional: For better performance and additional features
+scikit-learn==1.3.0
+matplotlib==3.7.2
+
+# Development and testing (optional)
+pytest==7.4.2
+pytest-flask==1.2.0
