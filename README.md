@@ -5,7 +5,7 @@ A web-based attendance system that uses face recognition technology to automatic
 ## Features
 
 - **Real-time Face Detection**: Uses webcam to capture live video feed
-- **Face Recognition**: Employs DeepFace with Facenet model for accurate face matching
+- **Face Recognition**: Employs DeepFace with ArcFace model for accurate face matching and excellent dim lighting performance
 - **Web Interface**: Clean and simple web interface for attendance marking
 - **Database Management**: SQLite database to store student information and attendance records
 - **Student Management**: Add new students to the system with their photos
@@ -15,7 +15,7 @@ A web-based attendance system that uses face recognition technology to automatic
 
 - **Backend**: Flask (Python web framework)
 - **Face Detection**: MTCNN (Multi-task CNN)
-- **Face Recognition**: DeepFace with Facenet model
+- **Face Recognition**: DeepFace with ArcFace model
 - **Computer Vision**: OpenCV
 - **Database**: SQLite
 - **Frontend**: HTML, JavaScript (with webcam API)

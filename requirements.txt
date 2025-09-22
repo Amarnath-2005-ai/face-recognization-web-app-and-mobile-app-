@@ -4,6 +4,8 @@ Flask==2.3.3
 # Face Recognition and Detection
 deepface==0.0.79
 mtcnn==0.1.1
+# ArcFace model is included in deepface - lightweight and works well in dim lighting
+tensorflow==2.13.0
 
 # Computer Vision
 opencv-python==4.8.1.78
