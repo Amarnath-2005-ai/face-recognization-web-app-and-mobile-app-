@@ -4,20 +4,23 @@ A web-based attendance system that uses face recognition technology to automatic
 
 ## Features
 
-- **Real-time Face Detection**: Uses webcam to capture live video feed
-- **Face Recognition**: Employs DeepFace with ArcFace model for accurate face matching and excellent dim lighting performance
+- **Real-time Face Detection**: Uses webcam to capture live video feed with MTCNN
+- **Advanced Face Recognition**: Employs DeepFace with ArcFace model for high accuracy and excellent dim lighting performance
+- **Low-Light Optimization**: Enhanced image preprocessing for better recognition in dim lighting conditions
 - **Web Interface**: Clean and simple web interface for attendance marking
 - **Database Management**: SQLite database to store student information and attendance records
-- **Student Management**: Add new students to the system with their photos
+- **Student Management**: Easy addition of new students with their photos
 - **Attendance Tracking**: View attendance records with date and status information
+- **Fast Processing**: Optimized for small groups with quick recognition
 
 ## Technology Stack
 
 - **Backend**: Flask (Python web framework)
-- **Face Detection**: MTCNN (Multi-task CNN)
-- **Face Recognition**: DeepFace with ArcFace model
-- **Computer Vision**: OpenCV
-- **Database**: SQLite
+- **Face Detection**: MTCNN (Multi-task CNN) - lightweight and accurate
+- **Face Recognition**: DeepFace with ArcFace model - optimized for dim lighting
+- **Computer Vision**: OpenCV with advanced image preprocessing
+- **Image Enhancement**: LAB color space processing with CLAHE and gamma correction
+- **Database**: SQLite - lightweight and efficient
 - **Frontend**: HTML, JavaScript (with webcam API)
 
 ## Prerequisites
@@ -33,18 +36,24 @@ Before running the application, make sure you have the following installed:
 
 2. **Install required Python packages**:
    ```bash
-   pip install flask deepface mtcnn opencv-python numpy
+   pip install -r requirements.txt
    ```
+   
+   **Having TensorFlow installation issues?** 
+   - Check `INSTALLATION_GUIDE.md` for detailed troubleshooting
+   - Try: `pip install tensorflow-cpu` if standard installation fails
+   - Alternative: Use `requirements-light.txt` for lighter installation
 
 3. **Set up the database**:
    ```bash
    python database_setup.py
    ```
 
-4. **Add students to the system** (optional):
+4. **Add students to the system**:
    ```bash
    python add_student.py
    ```
+   This will add 3 sample students. You can modify the `add_student.py` file to add your own students.
 
 ## Usage
 
@@ -103,35 +112,68 @@ face detection based attendence system/
 
 ## Adding Students
 
+
+### **Adding New Students**
 To add new students to the system:
 
-1. Place the student's face image in the `faces_db/` directory
-2. Run the `add_student.py` script:
+1. **Place the student's face image** in the `faces_db/` directory
+2. **Edit the `add_student.py` file** to add your student:
+   ```python
+   add_student("student_id", "Student Name", "faces_db/photo.jpg")
+   ```
+3. **Run the script**:
    ```bash
    python add_student.py
    ```
-3. Follow the prompts to enter student ID, name, and image filename
+
+### **Photo Requirements**
+- **Format**: JPG, PNG, or other common image formats
+- **Quality**: Clear, well-lit, front-facing photo
+- **Size**: At least 200x200 pixels recommended
+- **Lighting**: Works well in dim lighting with enhanced preprocessing
 
 ## Troubleshooting
 
 ### Common Issues
 
 1. **Camera not working**: Ensure your browser has permission to access the camera
-2. **Face not detected**: Make sure there's good lighting and the face is clearly visible
-3. **Recognition fails**: Ensure the face image in the database is clear and well-lit
-4. **Module not found errors**: Make sure all required packages are installed
+2. **Face not detected**: The system now works well in dim lighting, but ensure the face is clearly visible
+3. **Recognition fails**: 
+   - Ensure the face image in the database is clear and well-lit
+   - Check that the student's face is facing the camera directly
+   - Try adjusting the lighting or camera position
+4. **Module not found errors**: Make sure all required packages are installed using `pip install -r requirements.txt`
+5. **ArcFace model loading slowly**: First-time model loading may take a few minutes - this is normal
 
 ### Performance Tips
 
-- Ensure good lighting conditions for better face detection
-- Use clear, high-quality images for student registration
-- Keep the camera at an appropriate distance from the face
+- **Lighting**: The system works well in dim lighting, but good lighting still improves accuracy
+- **Image Quality**: Use clear, high-quality images for student registration
+- **Camera Position**: Keep the camera at an appropriate distance (1-2 feet) from the face
+- **Face Angle**: Ensure the face is facing the camera directly for best results
+- **Small Groups**: This system is optimized for small groups (3-10 students) for best performance
 
 ## Security Considerations
 
 - This system is designed for educational/demonstration purposes
 - For production use, consider implementing proper authentication and security measures
 - Ensure student data privacy and compliance with relevant regulations
+
+## System Specifications
+
+### **Current Setup**
+- **Students**: 3 students with 1 photo each
+- **Recognition Model**: ArcFace (optimized for dim lighting)
+- **Processing Speed**: Very fast (3 comparisons per scan)
+- **Accuracy**: High with good quality photos
+- **Lighting**: Works well in dim lighting conditions
+
+### **Recommended Use Cases**
+- Small classrooms (3-10 students)
+- Lab sessions and workshops
+- Small group meetings
+- Family attendance tracking
+- Prototype and demo systems
 
 ## Future Enhancements
 
@@ -141,6 +183,8 @@ To add new students to the system:
 - Mobile-responsive design
 - Batch student registration
 - Attendance analytics and reporting
+- Multiple photo support per student
+- Real-time attendance dashboard
 
 ## License
 

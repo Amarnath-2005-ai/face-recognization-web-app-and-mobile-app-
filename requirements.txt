@@ -1,32 +1,50 @@
-# Web Framework
+# Face Detection Based Attendance System Requirements
+# Optimized for ArcFace model with dim lighting support
+
+# Core Web Framework
 Flask==2.3.3
 
 # Face Recognition and Detection
 deepface==0.0.79
 mtcnn==0.1.1
-# ArcFace model is included in deepface - lightweight and works well in dim lighting
+
+# Machine Learning Framework (Required for DeepFace and ArcFace)
+# Try these options in order if TensorFlow installation fails:
+
+# Option 1: Standard TensorFlow (try this first)
 tensorflow==2.13.0
 
-# Computer Vision
+# Option 2: If Option 1 fails, try CPU-only version (lighter)
+# tensorflow-cpu==2.13.0
+
+# Option 3: If both fail, try older stable version
+# tensorflow==2.12.0
+
+# Option 4: For very old systems, try this
+# tensorflow==2.10.0
+
+# Keras (usually installs with TensorFlow)
+keras==2.13.1
+
+# Computer Vision and Image Processing
 opencv-python==4.8.1.78
+Pillow==10.0.1
 
 # Scientific Computing
 numpy==1.24.3
-
-# Database (SQLite is built-in with Python, but including for completeness)
-# sqlite3 is part of Python standard library
-
-# Additional dependencies that deepface requires
-tensorflow==2.13.0
-keras==2.13.1
 pandas==2.0.3
-Pillow==10.0.1
-tqdm==4.66.1
 
-# Optional: For better performance and additional features
+# Additional DeepFace Dependencies
+tqdm==4.66.1
+scipy==1.11.1
+
+# Optional: Enhanced Performance and Visualization
 scikit-learn==1.3.0
 matplotlib==3.7.2
 
-# Development and testing (optional)
+# Development and Testing (Optional)
 pytest==7.4.2
 pytest-flask==1.2.0
+
+# Note: SQLite3 is included in Python standard library
+# ArcFace model is included in deepface package
