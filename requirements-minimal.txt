@@ -1,0 +1,29 @@
+# Face Detection Based Attendance System
+# Minimal requirements for basic functionality
+
+# Core Web Framework
+Flask>=2.3.3,<3.0.0
+
+# Face Recognition and Detection (Essential)
+deepface>=0.0.79
+mtcnn>=0.1.1
+
+# Machine Learning Framework (CPU Version)
+tensorflow-cpu>=2.10.0,<3.0.0
+
+# Basic Computer Vision
+opencv-python-headless>=4.8.0
+
+# Essential Image Processing
+Pillow>=10.0.0
+
+# Basic Scientific Computing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Required DeepFace Dependencies
+tqdm>=4.65.0
+scipy>=1.11.0
+
+# Note: This is a minimal setup for basic functionality
+# For full features, use requirements.txt instead

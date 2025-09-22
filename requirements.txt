@@ -1,50 +1,50 @@
 # Face Detection Based Attendance System Requirements
-# Optimized for ArcFace model with dim lighting support
+# Universal configuration that works across platforms
 
 # Core Web Framework
-Flask==2.3.3
+Flask>=2.3.3,<3.0.0
 
 # Face Recognition and Detection
-deepface==0.0.79
-mtcnn==0.1.1
+deepface>=0.0.79
+mtcnn>=0.1.1
 
-# Machine Learning Framework (Required for DeepFace and ArcFace)
-# Try these options in order if TensorFlow installation fails:
+# Machine Learning Framework
+# Primary option - if this fails, see requirements-minimal.txt
+tensorflow>=2.10.0,<3.0.0
 
-# Option 1: Standard TensorFlow (try this first)
-tensorflow==2.13.0
-
-# Option 2: If Option 1 fails, try CPU-only version (lighter)
-# tensorflow-cpu==2.13.0
-
-# Option 3: If both fail, try older stable version
-# tensorflow==2.12.0
-
-# Option 4: For very old systems, try this
-# tensorflow==2.10.0
-
-# Keras (usually installs with TensorFlow)
-keras==2.13.1
+# Alternative CPU-only version (uncomment if needed)
+# tensorflow-cpu>=2.10.0,<3.0.0
 
 # Computer Vision and Image Processing
-opencv-python==4.8.1.78
-Pillow==10.0.1
+opencv-python>=4.8.0
+# If opencv-python fails, try:
+# opencv-python-headless>=4.8.0
+
+# Image Processing
+Pillow>=10.0.0
 
 # Scientific Computing
-numpy==1.24.3
-pandas==2.0.3
+numpy>=1.24.0
+pandas>=2.0.0
 
 # Additional DeepFace Dependencies
-tqdm==4.66.1
-scipy==1.11.1
+tqdm>=4.65.0
+scipy>=1.11.0
 
 # Optional: Enhanced Performance and Visualization
-scikit-learn==1.3.0
-matplotlib==3.7.2
+scikit-learn>=1.3.0
+matplotlib>=3.7.0
 
 # Development and Testing (Optional)
-pytest==7.4.2
-pytest-flask==1.2.0
+pytest>=7.4.0
+pytest-flask>=1.2.0
 
-# Note: SQLite3 is included in Python standard library
-# ArcFace model is included in deepface package
+# Platform-specific notes:
+# - Windows: All packages should work out of the box
+# - Linux: May need to install: python3-dev, libgl1-mesa-glx
+# - macOS: May need to: xcode-select --install
+
+# Note: 
+# - SQLite3 is included in Python standard library
+# - For minimal installation, use requirements-minimal.txt
+# - See README.md for platform-specific installation guides

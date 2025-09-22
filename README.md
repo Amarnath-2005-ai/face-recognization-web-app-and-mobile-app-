@@ -27,27 +27,82 @@ A web-based attendance system that uses face recognition technology to automatic
 
 Before running the application, make sure you have the following installed:
 
-- Python 3.7 or higher
+- Python 3.8 or higher (3.8-3.11 recommended)
 - pip (Python package installer)
+- Git (optional, for cloning)
+
+### Platform-Specific Prerequisites
+
+#### Windows
+- Visual C++ Redistributable (usually pre-installed)
+- No additional requirements
+
+#### Linux (Ubuntu/Debian)
+```bash
+sudo apt-get update
+sudo apt-get install -y python3-dev python3-pip python3-venv libgl1-mesa-glx
+```
+
+#### macOS
+```bash
+xcode-select --install
+brew install python3  # If using Homebrew
+```
 
 ## Installation
 
-1. **Clone or download the project** to your local machine
+1. **Clone or download the project** to your local machine:
+   ```bash
+   git clone https://github.com/Amarnath-2005-ai/face-recognization-web-app-and-mobile-app-.git
+   cd face-recognization-web-app-and-mobile-app-
+   ```
 
-2. **Install required Python packages**:
+2. **Create and activate a virtual environment** (recommended):
+   
+   Windows:
+   ```powershell
+   python -m venv venv
+   .\venv\Scripts\Activate
+   ```
+   
+   Linux/macOS:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Choose your installation method**:
+
+   a. Full Installation (Recommended for powerful machines):
    ```bash
    pip install -r requirements.txt
    ```
    
-   **Having TensorFlow installation issues?** 
-   - Check `INSTALLATION_GUIDE.md` for detailed troubleshooting
-   - Try: `pip install tensorflow-cpu` if standard installation fails
-   - Alternative: Use `requirements-light.txt` for lighter installation
+   b. Minimal Installation (For older or less powerful machines):
+   ```bash
+   pip install -r requirements-minimal.txt
+   ```
+   
+   **Installation Troubleshooting**:
+   - If TensorFlow installation fails, try the CPU-only version:
+     ```bash
+     pip install tensorflow-cpu
+     ```
+   - If OpenCV installation fails, try the headless version:
+     ```bash
+     pip install opencv-python-headless
+     ```
+   - For M1/M2 Macs, use tensorflow-macos:
+     ```bash
+     pip install tensorflow-macos
+     ```
 
-3. **Set up the database**:
+4. **Set up the database**:
    ```bash
    python database_setup.py
    ```
+
+For detailed platform-specific setup instructions, Docker support, and server deployment guidelines, please see [PLATFORM_SPECIFIC.md](PLATFORM_SPECIFIC.md).
 
 4. **Add students to the system**:
    ```bash
